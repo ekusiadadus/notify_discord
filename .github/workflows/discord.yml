@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Actions for Discord
         run: |
-          curl  ${{ secrets.DISCORD_WEBHOOK }} -H "Content-Type: application/json" -X POST -d '{"username": "isucon", "content": "${{github.event.head_commit.message}}"}'
+          curl  ${{ secrets.DISCORD_WEBHOOK }} -H "Content-Type: application/json" -X POST -d '{"username": "isucon", "content": "test\n${{github.event.head_commit.message}}"}'
