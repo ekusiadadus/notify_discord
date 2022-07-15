@@ -5,9 +5,6 @@ name: dotnet package
     branches:
       - master
 
-env:
-  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,5 +12,4 @@ jobs:
     steps:
       - name: Actions for Discord
         run: |
-          MESSAGE=${{github.event.head_commit.message}}
-          curl -H "Content-Type: application/json" -X POST -d '{"username": "test", "content": "${{github.event.head_commit.message}}"}' ${{ secrets.DISCORD_WEBHOOK }}
+          curl  ${{ secrets.DISCORD_WEBHOOK }} -H "Content-Type: application/json" -X POST -d '{"username": "isucon", "content": "${{github.event.head_commit.message}}"}'
