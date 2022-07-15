@@ -14,4 +14,6 @@ jobs:
 
     steps:
       - name: Actions for Discord
-        uses: Ilshidur/action-discord@0.3.2
+        run: |
+          MESSAGE=${{github.event.head_commit.message}}
+          curl -H "Content-Type: application/json" -X POST -d '{"username": "test", "content": MESSAGE}'
